@@ -1,0 +1,77 @@
+name: Tuck
+options:
+  bundleIdPrefix: ai.outergy
+  deploymentTarget:
+    macOS: '14.0'
+settings:
+  base:
+    SWIFT_VERSION: '6.0'
+    MACOSX_DEPLOYMENT_TARGET: '14.0'
+    MARKETING_VERSION: '1.2.0'
+    CURRENT_PROJECT_VERSION: '9'
+    DEVELOPMENT_TEAM: VJMJQKCRMC
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_HARDENED_RUNTIME: YES
+    SWIFT_TREAT_WARNINGS_AS_ERRORS: YES
+packages:
+  MCP:
+    url: https://github.com/modelcontextprotocol/swift-sdk.git
+    exactVersion: 0.12.1
+  Logging:
+    url: https://github.com/apple/swift-log.git
+    from: 1.5.0
+targets:
+  Tuck:
+    type: application
+    platform: macOS
+    info:
+      path: Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Tuck
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleIconFile: Tuck
+        NSPrincipalClass: $(PRODUCT_MODULE_NAME).TuckApplication
+        LSApplicationCategoryType: public.app-category.developer-tools
+        NSHumanReadableCopyright: Copyright © 2026 Outergy Group, LLC
+        ITSAppUsesNonExemptEncryption: false
+    sources:
+      - Sources
+      - path: Resources
+        excludes: [Tuck.entitlements, Assets.xcassets, Info.plist]
+    dependencies:
+      - package: MCP
+        product: MCP
+      - package: Logging
+        product: Logging
+    settings:
+      base:
+        PRODUCT_NAME: Tuck
+        PRODUCT_BUNDLE_IDENTIFIER: ai.outergy.keydrop
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: Resources/Tuck.entitlements
+  TuckTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [Tests/Unit]
+    dependencies:
+      - target: Tuck
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+  TuckUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    sources: [Tests/UI]
+    dependencies:
+      - target: Tuck
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Tuck:
+    build:
+      targets:
+        Tuck: all
+    test:
+      targets: [TuckTests, TuckUITests]

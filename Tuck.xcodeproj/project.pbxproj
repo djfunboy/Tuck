@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		090F350BB67D617DDECBF9A3 /* CredentialRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8593345A8006A23DAB7EF /* CredentialRequest.swift */; };
+		1B434CE6A9A655994254CB21 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = EC4188682645551BF3FBD37E /* Logging */; };
+		1D9FFBEA7F03012F38812582 /* SavePermit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821DA0425A9E1F6466CCAF31 /* SavePermit.swift */; };
+		201EC60A28ED4F532B05E092 /* MCPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ABAF221E526715B940DF05 /* MCPService.swift */; };
+		2EB9192576F10127D03D0E7B /* MCP in Frameworks */ = {isa = PBXBuildFile; productRef = B019B0A68CF5D56D41251487 /* MCP */; };
+		3CDBDD76057E74617393A506 /* Tuck.icns in Resources */ = {isa = PBXBuildFile; fileRef = E0DDC67E867755FFEFF53F79 /* Tuck.icns */; };
+		4A286769F7D36931AEF5A917 /* KeyRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252EFA1B60341FDA3170413E /* KeyRecognizer.swift */; };
+		74FB92C4A153AB5C7ECD9FF5 /* KeychainWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB216AFA8206C651308DF665 /* KeychainWriter.swift */; };
+		76A2ADACD868F9A64BD78A93 /* ReopenPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B343FB99B26E27D0CC9920 /* ReopenPolicy.swift */; };
+		839D34A47F588EC1E230E3E1 /* KeyFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D663C307FFB03C2DD7031B8 /* KeyFormats.swift */; };
+		91B1A219D177347326DCD091 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D1D8B23A7AAF343B3877C7CF /* PrivacyInfo.xcprivacy */; };
+		984E57EFFAF90B75B5827D76 /* TuckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292BB361207126F29B6B64A2 /* TuckTests.swift */; };
+		9EC367BB3350CF1F334730C5 /* TuckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D893EAF2F5428014DC6E47D /* TuckApp.swift */; };
+		B0A8F8147F264753510D506E /* TuckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D708EEFA5380EB793444FF4 /* TuckView.swift */; };
+		B2E4638D32FD2D2095F46750 /* PromptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7504653209FEC282E8B03219 /* PromptModel.swift */; };
+		BA8A9184EACD6E249190978C /* TuckApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60233CF19DB166EF3906CF7B /* TuckApplication.swift */; };
+		CD1EB4EEEBF8A3307CBA4D6E /* ExecutableIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B580E2956C7323DAA65D0F38 /* ExecutableIdentity.swift */; };
+		CFE25DE7BAF96B5291A7BDDA /* KeyRecognizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E2474DD9F82A7ACE1E89EA /* KeyRecognizerTests.swift */; };
+		DC5D3BCFA5105AF5715EBC04 /* SKILL.md in Resources */ = {isa = PBXBuildFile; fileRef = EC512FE6B076E23A5BB8F3C0 /* SKILL.md */; };
+		ECDFD7312CC4E050965DB2B8 /* BoundedStdioTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ECABC143CBD06021B16919 /* BoundedStdioTransport.swift */; };
+		EED89B8F3E0EB43137F8A255 /* ThirdPartyNotices.txt in Resources */ = {isa = PBXBuildFile; fileRef = C4C8ABA8CD67FA289EE1CA8D /* ThirdPartyNotices.txt */; };
+		F0E4585FDEBBE0CD0D1056E0 /* TransportSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47310E764344199E45E5D3BD /* TransportSecurityTests.swift */; };
+		FA605B26C74E2DD19E959957 /* TuckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5CBF06EDA817CA91EFF1089 /* TuckUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5C3216C40C4CE7028206695B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 445AC9678332DFDBAB463E6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74BFB3FDE93B947C2AF6EE7D;
+			remoteInfo = Tuck;
+		};
+		D2BF23B66C410D1F8CA50B6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 445AC9678332DFDBAB463E6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74BFB3FDE93B947C2AF6EE7D;
+			remoteInfo = Tuck;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D708EEFA5380EB793444FF4 /* TuckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuckView.swift; sourceTree = "<group>"; };
+		1F3EA35A63FB5D2BC16A58F5 /* TuckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22E2474DD9F82A7ACE1E89EA /* KeyRecognizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRecognizerTests.swift; sourceTree = "<group>"; };
+		252EFA1B60341FDA3170413E /* KeyRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyRecognizer.swift; sourceTree = "<group>"; };
+		292BB361207126F29B6B64A2 /* TuckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuckTests.swift; sourceTree = "<group>"; };
+		38E8593345A8006A23DAB7EF /* CredentialRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialRequest.swift; sourceTree = "<group>"; };
+		3D663C307FFB03C2DD7031B8 /* KeyFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFormats.swift; sourceTree = "<group>"; };
+		44B343FB99B26E27D0CC9920 /* ReopenPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReopenPolicy.swift; sourceTree = "<group>"; };
+		47310E764344199E45E5D3BD /* TransportSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportSecurityTests.swift; sourceTree = "<group>"; };
+		60233CF19DB166EF3906CF7B /* TuckApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuckApplication.swift; sourceTree = "<group>"; };
+		73AF71CFD40073586E355398 /* Tuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7504653209FEC282E8B03219 /* PromptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptModel.swift; sourceTree = "<group>"; };
+		7D893EAF2F5428014DC6E47D /* TuckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuckApp.swift; sourceTree = "<group>"; };
+		821DA0425A9E1F6466CCAF31 /* SavePermit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePermit.swift; sourceTree = "<group>"; };
+		AB216AFA8206C651308DF665 /* KeychainWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWriter.swift; sourceTree = "<group>"; };
+		B2ECABC143CBD06021B16919 /* BoundedStdioTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundedStdioTransport.swift; sourceTree = "<group>"; };
+		B580E2956C7323DAA65D0F38 /* ExecutableIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecutableIdentity.swift; sourceTree = "<group>"; };
+		C4C8ABA8CD67FA289EE1CA8D /* ThirdPartyNotices.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ThirdPartyNotices.txt; sourceTree = "<group>"; };
+		D0ABAF221E526715B940DF05 /* MCPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPService.swift; sourceTree = "<group>"; };
+		D1D8B23A7AAF343B3877C7CF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E0DDC67E867755FFEFF53F79 /* Tuck.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Tuck.icns; sourceTree = "<group>"; };
+		EC512FE6B076E23A5BB8F3C0 /* SKILL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SKILL.md; sourceTree = "<group>"; };
+		F5CBF06EDA817CA91EFF1089 /* TuckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuckUITests.swift; sourceTree = "<group>"; };
+		F93C6B24FAE131CB90E4C147 /* TuckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C86A529EA1C42A94957BEB68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EB9192576F10127D03D0E7B /* MCP in Frameworks */,
+				1B434CE6A9A655994254CB21 /* Logging in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B4499A964ABC1071FD95B2C = {
+			isa = PBXGroup;
+			children = (
+				A8C14E272EE06D2CA33DF80D /* Resources */,
+				661120238250B8AEEFB170FE /* Sources */,
+				7B6E38E42C1BCF0B6BE2A6D1 /* UI */,
+				A271F4036F3C56CADA0917EC /* Unit */,
+				C56D227EA929F8951E87D622 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		661120238250B8AEEFB170FE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B2ECABC143CBD06021B16919 /* BoundedStdioTransport.swift */,
+				38E8593345A8006A23DAB7EF /* CredentialRequest.swift */,
+				B580E2956C7323DAA65D0F38 /* ExecutableIdentity.swift */,
+				AB216AFA8206C651308DF665 /* KeychainWriter.swift */,
+				3D663C307FFB03C2DD7031B8 /* KeyFormats.swift */,
+				252EFA1B60341FDA3170413E /* KeyRecognizer.swift */,
+				D0ABAF221E526715B940DF05 /* MCPService.swift */,
+				7504653209FEC282E8B03219 /* PromptModel.swift */,
+				44B343FB99B26E27D0CC9920 /* ReopenPolicy.swift */,
+				821DA0425A9E1F6466CCAF31 /* SavePermit.swift */,
+				7D893EAF2F5428014DC6E47D /* TuckApp.swift */,
+				60233CF19DB166EF3906CF7B /* TuckApplication.swift */,
+				1D708EEFA5380EB793444FF4 /* TuckView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6B9D6DD18B1CD36509DA5908 /* tuck */ = {
+			isa = PBXGroup;
+			children = (
+				EC512FE6B076E23A5BB8F3C0 /* SKILL.md */,
+			);
+			path = tuck;
+			sourceTree = "<group>";
+		};
+		7B6E38E42C1BCF0B6BE2A6D1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F5CBF06EDA817CA91EFF1089 /* TuckUITests.swift */,
+			);
+			name = UI;
+			path = Tests/UI;
+			sourceTree = "<group>";
+		};
+		A271F4036F3C56CADA0917EC /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				22E2474DD9F82A7ACE1E89EA /* KeyRecognizerTests.swift */,
+				47310E764344199E45E5D3BD /* TransportSecurityTests.swift */,
+				292BB361207126F29B6B64A2 /* TuckTests.swift */,
+			);
+			name = Unit;
+			path = Tests/Unit;
+			sourceTree = "<group>";
+		};
+		A8C14E272EE06D2CA33DF80D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D1D8B23A7AAF343B3877C7CF /* PrivacyInfo.xcprivacy */,
+				C4C8ABA8CD67FA289EE1CA8D /* ThirdPartyNotices.txt */,
+				E0DDC67E867755FFEFF53F79 /* Tuck.icns */,
+				6B9D6DD18B1CD36509DA5908 /* tuck */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C56D227EA929F8951E87D622 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				73AF71CFD40073586E355398 /* Tuck.app */,
+				F93C6B24FAE131CB90E4C147 /* TuckTests.xctest */,
+				1F3EA35A63FB5D2BC16A58F5 /* TuckUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74BFB3FDE93B947C2AF6EE7D /* Tuck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB3F5EF4865A6FE6D3748C92 /* Build configuration list for PBXNativeTarget "Tuck" */;
+			buildPhases = (
+				F9EB1F21C8B6E93BD2395033 /* Sources */,
+				D4E303D05B1FE732AFE83DE7 /* Resources */,
+				C86A529EA1C42A94957BEB68 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tuck;
+			packageProductDependencies = (
+				B019B0A68CF5D56D41251487 /* MCP */,
+				EC4188682645551BF3FBD37E /* Logging */,
+			);
+			productName = Tuck;
+			productReference = 73AF71CFD40073586E355398 /* Tuck.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83BDEA9212BBDED9D6CF30EB /* TuckTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C254FD10C108AA09890D7C8C /* Build configuration list for PBXNativeTarget "TuckTests" */;
+			buildPhases = (
+				6F7824E13E85F6704560EBC7 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				801190B4F4605168C415C5FE /* PBXTargetDependency */,
+			);
+			name = TuckTests;
+			packageProductDependencies = (
+			);
+			productName = TuckTests;
+			productReference = F93C6B24FAE131CB90E4C147 /* TuckTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E8E49B614BBD6C7475AE3E1E /* TuckUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C35A76A60245FFCBB1B77A6 /* Build configuration list for PBXNativeTarget "TuckUITests" */;
+			buildPhases = (
+				0B6DB72A617F9FC80B921F94 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AC01AB868FDFF506C485C0E /* PBXTargetDependency */,
+			);
+			name = TuckUITests;
+			packageProductDependencies = (
+			);
+			productName = TuckUITests;
+			productReference = 1F3EA35A63FB5D2BC16A58F5 /* TuckUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		445AC9678332DFDBAB463E6B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					74BFB3FDE93B947C2AF6EE7D = {
+						DevelopmentTeam = VJMJQKCRMC;
+						ProvisioningStyle = Automatic;
+					};
+					83BDEA9212BBDED9D6CF30EB = {
+						DevelopmentTeam = VJMJQKCRMC;
+						ProvisioningStyle = Automatic;
+					};
+					E8E49B614BBD6C7475AE3E1E = {
+						DevelopmentTeam = VJMJQKCRMC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 74BFB3FDE93B947C2AF6EE7D;
+					};
+				};
+			};
+			buildConfigurationList = 9113DA0F3D5BD14480E2B85B /* Build configuration list for PBXProject "Tuck" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 3B4499A964ABC1071FD95B2C;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				043572C83C86980C01E53B29 /* XCRemoteSwiftPackageReference "swift-log" */,
+				C5DCFAD465E28F0B2E916303 /* XCRemoteSwiftPackageReference "swift-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C56D227EA929F8951E87D622 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74BFB3FDE93B947C2AF6EE7D /* Tuck */,
+				83BDEA9212BBDED9D6CF30EB /* TuckTests */,
+				E8E49B614BBD6C7475AE3E1E /* TuckUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4E303D05B1FE732AFE83DE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91B1A219D177347326DCD091 /* PrivacyInfo.xcprivacy in Resources */,
+				DC5D3BCFA5105AF5715EBC04 /* SKILL.md in Resources */,
+				EED89B8F3E0EB43137F8A255 /* ThirdPartyNotices.txt in Resources */,
+				3CDBDD76057E74617393A506 /* Tuck.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B6DB72A617F9FC80B921F94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA605B26C74E2DD19E959957 /* TuckUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F7824E13E85F6704560EBC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE25DE7BAF96B5291A7BDDA /* KeyRecognizerTests.swift in Sources */,
+				F0E4585FDEBBE0CD0D1056E0 /* TransportSecurityTests.swift in Sources */,
+				984E57EFFAF90B75B5827D76 /* TuckTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9EB1F21C8B6E93BD2395033 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDFD7312CC4E050965DB2B8 /* BoundedStdioTransport.swift in Sources */,
+				090F350BB67D617DDECBF9A3 /* CredentialRequest.swift in Sources */,
+				CD1EB4EEEBF8A3307CBA4D6E /* ExecutableIdentity.swift in Sources */,
+				839D34A47F588EC1E230E3E1 /* KeyFormats.swift in Sources */,
+				4A286769F7D36931AEF5A917 /* KeyRecognizer.swift in Sources */,
+				74FB92C4A153AB5C7ECD9FF5 /* KeychainWriter.swift in Sources */,
+				201EC60A28ED4F532B05E092 /* MCPService.swift in Sources */,
+				B2E4638D32FD2D2095F46750 /* PromptModel.swift in Sources */,
+				76A2ADACD868F9A64BD78A93 /* ReopenPolicy.swift in Sources */,
+				1D9FFBEA7F03012F38812582 /* SavePermit.swift in Sources */,
+				9EC367BB3350CF1F334730C5 /* TuckApp.swift in Sources */,
+				BA8A9184EACD6E249190978C /* TuckApplication.swift in Sources */,
+				B0A8F8147F264753510D506E /* TuckView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6AC01AB868FDFF506C485C0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74BFB3FDE93B947C2AF6EE7D /* Tuck */;
+			targetProxy = D2BF23B66C410D1F8CA50B6A /* PBXContainerItemProxy */;
+		};
+		801190B4F4605168C415C5FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74BFB3FDE93B947C2AF6EE7D /* Tuck */;
+			targetProxy = 5C3216C40C4CE7028206695B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		169F27BE19852E5A29D2B7D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.outergy.TuckUITests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = Tuck;
+			};
+			name = Debug;
+		};
+		4331469F47E4811C6A9E6091 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.outergy.TuckUITests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = Tuck;
+			};
+			name = Release;
+		};
+		5B7E64DC839AE6148FFA7ADF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 9;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VJMJQKCRMC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.2.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		8BC4445CA38FA85FEA69789B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 9;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VJMJQKCRMC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.2.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		93BB223D21DCBF1A0C6FB1B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.outergy.TuckTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tuck.app/Contents/MacOS/Tuck";
+			};
+			name = Release;
+		};
+		EEFEBD491CF654AD65869BDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/Tuck.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.outergy.keydrop;
+				PRODUCT_NAME = Tuck;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F037089F41BA07580FE47003 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/Tuck.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.outergy.keydrop;
+				PRODUCT_NAME = Tuck;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F62463B3DFCFD22110F16AA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ai.outergy.TuckTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tuck.app/Contents/MacOS/Tuck";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C35A76A60245FFCBB1B77A6 /* Build configuration list for PBXNativeTarget "TuckUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				169F27BE19852E5A29D2B7D3 /* Debug */,
+				4331469F47E4811C6A9E6091 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9113DA0F3D5BD14480E2B85B /* Build configuration list for PBXProject "Tuck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BC4445CA38FA85FEA69789B /* Debug */,
+				5B7E64DC839AE6148FFA7ADF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C254FD10C108AA09890D7C8C /* Build configuration list for PBXNativeTarget "TuckTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F62463B3DFCFD22110F16AA8 /* Debug */,
+				93BB223D21DCBF1A0C6FB1B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DB3F5EF4865A6FE6D3748C92 /* Build configuration list for PBXNativeTarget "Tuck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEFEBD491CF654AD65869BDE /* Debug */,
+				F037089F41BA07580FE47003 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		043572C83C86980C01E53B29 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+		C5DCFAD465E28F0B2E916303 /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/modelcontextprotocol/swift-sdk.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.12.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B019B0A68CF5D56D41251487 /* MCP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5DCFAD465E28F0B2E916303 /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = MCP;
+		};
+		EC4188682645551BF3FBD37E /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 043572C83C86980C01E53B29 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 445AC9678332DFDBAB463E6B /* Project object */;
+}

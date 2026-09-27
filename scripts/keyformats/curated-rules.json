@@ -1,0 +1,498 @@
+[
+ {
+  "id": "vercel-token",
+  "provider": "Vercel token",
+  "family": "vercel",
+  "generic": false,
+  "pattern": "^(?:vcp_[A-Za-z0-9]{20,})$",
+  "source": "curated: Vercel changelog, new token formats"
+ },
+ {
+  "id": "supabase-secret-key",
+  "provider": "Supabase secret key",
+  "family": "supabase",
+  "generic": false,
+  "pattern": "^(?:sb_secret_[A-Za-z0-9_-]{20,})$",
+  "source": "curated: Supabase API keys docs"
+ },
+ {
+  "id": "supabase-publishable-key",
+  "provider": "Supabase publishable key",
+  "family": "supabase",
+  "generic": false,
+  "pattern": "^(?:sb_publishable_[A-Za-z0-9_-]{20,})$",
+  "source": "curated: Supabase API keys docs"
+ },
+ {
+  "id": "groq-api-key",
+  "provider": "Groq API key",
+  "family": "groq",
+  "generic": false,
+  "pattern": "^(?:gsk_[A-Za-z0-9]{48,})$",
+  "source": "curated: gitleaks issue 2180"
+ },
+ {
+  "id": "xai-api-key",
+  "provider": "xAI API key",
+  "family": "xai",
+  "generic": false,
+  "pattern": "^(?:xai-[A-Za-z0-9]{60,})$",
+  "source": "curated: xAI docs"
+ },
+ {
+  "id": "gcp-service-account-json",
+  "provider": "Google Cloud service-account JSON",
+  "family": "gcp",
+  "generic": false,
+  "pattern": "^(?:(?s)\\s*\\{.*\"type\"\\s*:\\s*\"service_account\".*\\}\\s*)$",
+  "source": "curated: Google IAM docs"
+ },
+ {
+  "id": "apideck-sk-live",
+  "provider": "Apideck key",
+  "family": "apideck",
+  "generic": false,
+  "pattern": "^(?:(sk_live_[a-z0-9A-Z-]{93}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "apify-apify-api",
+  "provider": "Apify token",
+  "family": "apify",
+  "generic": false,
+  "pattern": "^(?:(apify\\_api\\_[a-zA-Z-0-9]{36}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "contentful-cfpat",
+  "provider": "Contentful personal access token",
+  "family": "contentful",
+  "generic": false,
+  "pattern": "^(?:(CFPAT-[a-zA-Z0-9_\\-]{43}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "endorlabs-endr",
+  "provider": "Endor Labs key",
+  "family": "endorlabs",
+  "generic": false,
+  "pattern": "^(?:(endr\\+[a-zA-Z0-9-]{16}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "fleetbase-flb-live",
+  "provider": "Fleetbase key",
+  "family": "fleetbase",
+  "generic": false,
+  "pattern": "^(?:(flb_live_[0-9a-zA-Z]{20}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "flexport-shltm",
+  "provider": "Flexport key",
+  "family": "flexport",
+  "generic": false,
+  "pattern": "^(?:(shltm_[0-9a-zA-Z-_]{40}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "flutterwave-flwseck",
+  "provider": "Flutterwave secret key",
+  "family": "flutterwave",
+  "generic": false,
+  "pattern": "^(?:(FLWSECK-[0-9a-z]{32}-X))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "flyio-flyv1",
+  "provider": "Fly.io token",
+  "family": "flyio",
+  "generic": false,
+  "pattern": "^(?:(FlyV1 fm\\d+_[A-Za-z0-9+\\/=,_-]{500,700}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "gcp-ya29",
+  "provider": "Google OAuth access token",
+  "family": "gcp",
+  "generic": false,
+  "pattern": "^(?:(ya29\\.(?i:[a-z0-9_-]{10,})))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "grafana-glc-eyj",
+  "provider": "Grafana Cloud token",
+  "family": "grafana",
+  "generic": false,
+  "pattern": "^(?:(glc_eyJ[A-Za-z0-9+\\/=]{60,160}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "grafana-glsa",
+  "provider": "Grafana service-account token",
+  "family": "grafana",
+  "generic": false,
+  "pattern": "^(?:(glsa_[0-9a-zA-Z_]{41}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "intra42-u-s4t2",
+  "provider": "42 Intra secret",
+  "family": "intra42",
+  "generic": false,
+  "pattern": "^(?:(u-s4t2(?:ud|af)-[a-f0-9]{64}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "langfuse-pk-lf",
+  "provider": "Langfuse public key",
+  "family": "langfuse",
+  "generic": false,
+  "pattern": "^(?:(pk-lf-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "langsmith-lsv2",
+  "provider": "LangSmith key",
+  "family": "langsmith",
+  "generic": false,
+  "pattern": "^(?:(lsv2_(?:pt|sk)_[a-f0-9]{32}_[a-f0-9]{10}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "lark-cli",
+  "provider": "Lark Suite app secret",
+  "family": "lark",
+  "generic": false,
+  "pattern": "^(?:(cli_[a-z0-9A-Z]{16}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "mailgun-key",
+  "provider": "Mailgun key",
+  "family": "mailgun",
+  "generic": false,
+  "pattern": "^(?:(key-[a-z0-9]{32}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "newrelic-nrbr",
+  "provider": "New Relic browser key",
+  "family": "newrelic",
+  "generic": false,
+  "pattern": "^(?:(NRBR-[0-9a-f]{19}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "newrelic-nrii",
+  "provider": "New Relic Insights insert key",
+  "family": "newrelic",
+  "generic": false,
+  "pattern": "^(?:(NRII-[a-zA-Z0-9-_]{25}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "newrelic-nriq",
+  "provider": "New Relic Insights query key",
+  "family": "newrelic",
+  "generic": false,
+  "pattern": "^(?:(NRIQ-[a-zA-Z0-9-_]{25}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "newrelic-nrak",
+  "provider": "New Relic user key",
+  "family": "newrelic",
+  "generic": false,
+  "pattern": "^(?:(NRAK-[A-Z0-9]{27}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "nvidia-nvapi",
+  "provider": "NVIDIA API key",
+  "family": "nvidia",
+  "generic": false,
+  "pattern": "^(?:(nvapi-[a-zA-Z0-9_-]{64}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "pagarme-ak-live",
+  "provider": "Pagar.me key",
+  "family": "pagarme",
+  "generic": false,
+  "pattern": "^(?:(ak_live_[a-zA-Z0-9]{30}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "pinecone-pcsk",
+  "provider": "Pinecone API key",
+  "family": "pinecone",
+  "generic": false,
+  "pattern": "^(?:(pcsk_([A-Za-z0-9]{5,6})_[A-Za-z0-9]{63}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "plaid-access",
+  "provider": "Plaid access token",
+  "family": "plaid",
+  "generic": false,
+  "pattern": "^(?:(access-(sandbox|production)-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "planetscale-pscale-pw",
+  "provider": "PlanetScale password",
+  "family": "planetscale",
+  "generic": false,
+  "pattern": "^(?:pscale_pw_[A-Za-z0-9_]{43})$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "portainer-ptr",
+  "provider": "Portainer token",
+  "family": "portainer",
+  "generic": false,
+  "pattern": "^(?:(ptr_[A-Za-z0-9\\/_\\-+=]{20,60}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "posthog-phx",
+  "provider": "PostHog personal API key",
+  "family": "posthog",
+  "generic": false,
+  "pattern": "^(?:(phx_[a-zA-Z0-9_]{43,48}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "pubnub-pub-c",
+  "provider": "PubNub publish key",
+  "family": "pubnub",
+  "generic": false,
+  "pattern": "^(?:(pub-c-[0-9a-z]{8}-[0-9a-z]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "pubnub-sub-c",
+  "provider": "PubNub subscribe key",
+  "family": "pubnub",
+  "generic": false,
+  "pattern": "^(?:(sub-c-[0-9a-z]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "ramp-ramp-id",
+  "provider": "Ramp client id",
+  "family": "ramp",
+  "generic": false,
+  "pattern": "^(?:(ramp_id_[[:alnum:]]{40}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "ramp-ramp-sec",
+  "provider": "Ramp client secret",
+  "family": "ramp",
+  "generic": false,
+  "pattern": "^(?:(ramp_sec_[[:alnum:]]{48}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "robinhood-rh-api",
+  "provider": "Robinhood API key",
+  "family": "robinhood",
+  "generic": false,
+  "pattern": "^(?:(rh-api-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "rootly-rootly",
+  "provider": "Rootly key",
+  "family": "rootly",
+  "generic": false,
+  "pattern": "^(?:(rootly_[a-f0-9]{64}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "salad-salad-cloud",
+  "provider": "Salad Cloud API key",
+  "family": "salad",
+  "generic": false,
+  "pattern": "^(?:(salad_cloud_[0-9A-Za-z]{1,7}_[0-9A-Za-z]{7,235}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "salesforce-3mvg9",
+  "provider": "Salesforce consumer key",
+  "family": "salesforce",
+  "generic": false,
+  "pattern": "^(?:(3MVG9[0-9a-zA-Z._+/=]{80,251}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "smooch-act",
+  "provider": "Smooch key",
+  "family": "smooch",
+  "generic": false,
+  "pattern": "^(?:(act_[0-9a-z]{24}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "sourcegraph-slk",
+  "provider": "Sourcegraph Cody key",
+  "family": "sourcegraph",
+  "generic": false,
+  "pattern": "^(?:(slk_[a-f0-9]{64}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "stripe-pk-live",
+  "provider": "Stripe publishable key",
+  "family": "stripe",
+  "generic": false,
+  "pattern": "^(?:(pk_live_[a-zA-Z0-9]{20,247}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "supabase-sbp",
+  "provider": "Supabase personal access token",
+  "family": "supabase",
+  "generic": false,
+  "pattern": "^(?:(sbp_[a-z0-9]{40}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "tailscale-tskey",
+  "provider": "Tailscale auth key",
+  "family": "tailscale",
+  "generic": false,
+  "pattern": "^(?:tskey-[a-z]+-[0-9A-Za-z_]+-[0-9A-Za-z_]+)$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "trufflehog-thog-key",
+  "provider": "TruffleHog Enterprise key",
+  "family": "trufflehog",
+  "generic": false,
+  "pattern": "^(?:thog-key-[0-9a-f]{16})$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "trufflehog-thog-secret",
+  "provider": "TruffleHog Enterprise secret",
+  "family": "trufflehog",
+  "generic": false,
+  "pattern": "^(?:thog-secret-[0-9a-f]{32})$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "ubidots-bbff",
+  "provider": "Ubidots token",
+  "family": "ubidots",
+  "generic": false,
+  "pattern": "^(?:(BBFF-[0-9a-zA-Z]{30}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "zoho-1000",
+  "provider": "Zoho OAuth token",
+  "family": "zoho",
+  "generic": false,
+  "pattern": "^(?:(1000\\.[a-f0-9]{32}\\.[a-f0-9]{32}))$",
+  "source": "trufflehog"
+ },
+ {
+  "id": "aws-da2",
+  "provider": "AWS AppSync API key",
+  "family": "aws",
+  "generic": false,
+  "pattern": "^(?:da2-[a-z0-9]{26})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "aws-amzn-mws",
+  "provider": "Amazon MWS key",
+  "family": "aws",
+  "generic": false,
+  "pattern": "^(?:amzn\\.mws\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "newrelic-nraa",
+  "provider": "New Relic admin API key",
+  "family": "newrelic",
+  "generic": false,
+  "pattern": "^(?:NRAA-[a-f0-9]{27})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "newrelic-nrra",
+  "provider": "New Relic REST API key",
+  "family": "newrelic",
+  "generic": false,
+  "pattern": "^(?:NRRA-[a-f0-9]{42})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "newrelic-nrsp",
+  "provider": "New Relic Synthetics key",
+  "family": "newrelic",
+  "generic": false,
+  "pattern": "^(?:NRSP-[a-z]{2}[0-9]{2}[a-f0-9]{31})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "posthog-phc",
+  "provider": "PostHog project key",
+  "family": "posthog",
+  "generic": false,
+  "pattern": "^(?:(phc_[a-zA-Z0-9_]{43}))$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "razorpay-rzp",
+  "provider": "Razorpay key",
+  "family": "razorpay",
+  "generic": false,
+  "pattern": "^(?:rzp_\\w{2,6}_\\w{10,20})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "square-sq0csp",
+  "provider": "Square OAuth secret",
+  "family": "square",
+  "generic": false,
+  "pattern": "^(?:sq0csp-[0-9A-Za-z\\-_]{43})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "square-sq0atp",
+  "provider": "Square access token",
+  "family": "square",
+  "generic": false,
+  "pattern": "^(?:sq0atp-[0-9A-Za-z\\-_]{22})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "square-sq0idp",
+  "provider": "Square application id",
+  "family": "square",
+  "generic": false,
+  "pattern": "^(?:(sq0idp-[0-9A-Za-z]{22}))$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "stripe-pk-test",
+  "provider": "Stripe publishable test key",
+  "family": "stripe",
+  "generic": false,
+  "pattern": "^(?:pk_test_[0-9a-z]{24})$",
+  "source": "secrets-patterns-db"
+ },
+ {
+  "id": "stripe-rk-live",
+  "provider": "Stripe restricted key",
+  "family": "stripe",
+  "generic": false,
+  "pattern": "^(?:rk_live_[0-9a-zA-Z]{24})$",
+  "source": "secrets-patterns-db"
+ }
+]

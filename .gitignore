@@ -1,0 +1,25 @@
+# Build output
+.DS_Store
+.build/
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+__pycache__/
+*.pyc
+
+# Never commit credentials
+.env*
+*.p12
+*.p8
+*.key
+
+# Internal project documents stay local (the public repository is the app only)
+/CLAUDE.md
+/AGENTS.md
+/CURRENT-STATE.md
+/VALUE-PROPOSITION.md
+/docs/
+/scripts/asc/
+/.netlify/
+/.playwright-mcp/
