@@ -34,7 +34,7 @@ Either way, a secret ends up somewhere it should never be.
 
 ## With Tuck
 
-Your agent calls one MCP tool. A small native window opens on your Mac with the destination already filled in. You paste the key and click **Save to Keychain**. The key goes straight into Apple Keychain, your clipboard is cleared, and the agent gets back exactly one word: `saved`.
+Your agent calls Tuck's local MCP server. A small native window opens on your Mac with the destination already filled in. You paste the key and click **Save to Keychain**. The key goes straight into Apple Keychain, your clipboard is cleared, and the agent gets back exactly one word: `saved`.
 
 The agent never sees the key, its length, or anything derived from it.
 
@@ -44,25 +44,25 @@ The agent never sees the key, its length, or anything derived from it.
 
 ## How it works
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant A as Your agent
-    participant T as Tuck (MCP server)
-    participant Y as You
-    participant K as Apple Keychain
-    A->>T: save_credential(service, account, provider_url?)
-    T->>Y: Native popup with the destination filled in
-    Y->>T: Paste the key (Tuck clears the clipboard), click Save
-    T->>K: SecItemAdd (or SecItemUpdate after an explicit Replace)
-    T->>A: "saved"
-    Note over A,T: The key never crosses this line.
-```
+<p align="center">
+  <img src="assets/how-it-works.png" width="900" alt="Everything happens on your Mac. 1: your agent asks Tuck, a local MCP server, for a key with save_credential(service, account). 2: Tuck opens a secure popup with the destination filled in. 3: you paste the key and click Save, and the key goes straight to Apple Keychain. 4: the agent gets back one word, saved. A red dashed path from the popup back to the agent is crossed out: the key never reaches your agent.">
+</p>
 
-Later, whatever needs the key reads it from Keychain at the moment it's used. For example, this pipes it straight into a CLI's own prompt without ever printing it:
+1. **Your agent asks.** It calls Tuck's one tool, `save_credential`, with where the key should go. It never sends a key.
+2. **Tuck opens a popup** on your Mac with that destination already filled in.
+3. **You paste the key and click Save.** It goes straight into Apple Keychain, and Tuck clears your clipboard.
+4. **Your agent gets one word back:** `saved`. Never the key, its length, or anything derived from it.
+
+Tuck's MCP server is **local**: it runs inside the Tuck app on your Mac, started by your agent's client. There is no Tuck server anywhere else.
+
+### Using the key later
+
+Tuck only stores the key. When a tool needs it, the tool reads it straight from Keychain. Tools that already use Keychain need nothing extra. For everything else, macOS's built-in `security` command can hand the key directly to the tool, so it never appears on screen:
 
 ```sh
-security find-generic-password -s OPENAI_API_KEY -a me -w | vercel env add OPENAI_API_KEY production
+# Read the key from Keychain and pass it straight into Vercel's prompt
+security find-generic-password -s OPENAI_API_KEY -a me -w \
+  | vercel env add OPENAI_API_KEY production
 ```
 
 ## What the agent can and can't do
@@ -95,7 +95,7 @@ Tuck's only entitlement is the App Sandbox. It has no network access at all:
 codesign -d --entitlements - /Applications/Tuck.app
 ```
 
-The whole MCP surface is one tool, declared in [`Sources/MCPService.swift`](Sources/MCPService.swift). Keychain access is two calls, in [`Sources/KeychainWriter.swift`](Sources/KeychainWriter.swift).
+The whole local MCP surface is one tool, declared in [`Sources/MCPService.swift`](Sources/MCPService.swift). Keychain access is two calls, in [`Sources/KeychainWriter.swift`](Sources/KeychainWriter.swift).
 
 ## Built with care
 
@@ -163,7 +163,7 @@ The UI tests and `Tests/Integration/mcp_ui.py` drive real windows. They need Acc
 
 | Path | What's there |
 |---|---|
-| `Sources/` | The app: MCP server, transport, popup, Keychain writer |
+| `Sources/` | The app: local MCP server, transport, popup, Keychain writer |
 | `Resources/` | Info.plist, entitlements, privacy manifest, the bundled agent skill, icon |
 | `Tests/Unit`, `Tests/UI`, `Tests/Integration` | XCTest suites and Python protocol and UI drivers |
 | `scripts/keyformats/` | Generates `KeyFormats.swift` from open-source scanner rules |
