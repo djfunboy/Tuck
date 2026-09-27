@@ -1,0 +1,95 @@
+<!-- Source for assets/how-it-works.png. Render the <svg> at 1400x880 with a 2x device scale. -->
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;background:#FFFBF2}
+svg{display:block;font-family:ui-rounded,"SF Pro Rounded",-apple-system,system-ui,sans-serif}
+.t{font-weight:800;font-size:22px}.s{font-size:15px;font-weight:600}.lab{font-size:15px;font-weight:700;fill:#301A52}.sub{font-size:13px;font-weight:600;fill:#5E4F76}
+.mono{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:13.5px;font-weight:600;fill:#5C2BC2}
+</style></head><body>
+<svg width="1400" height="880" viewBox="0 0 1400 880" xmlns="http://www.w3.org/2000/svg">
+<defs>
+ <marker id="av" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5C2BC2"/></marker>
+ <marker id="ag" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C98A00"/></marker>
+ <marker id="am" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14B07D"/></marker>
+ <marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#F01E6E"/></marker>
+ <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#301A52" flood-opacity=".14"/></filter>
+</defs>
+<g transform="translate(0,220)">
+<!-- Your Mac boundary -->
+<rect x="24" y="40" width="1352" height="596" rx="30" fill="#FFF6E6" stroke="#CDB8EA" stroke-width="2.5" stroke-dasharray="10 8"/>
+<text x="1344" y="84" text-anchor="end" style="font-size:15px;font-weight:800;letter-spacing:.12em" fill="#5C2BC2">YOUR MAC <tspan class="sub" style="font-size:15px;letter-spacing:0;font-weight:600" fill="#5E4F76">· everything happens locally</tspan></text>
+
+
+<!-- nodes -->
+<g filter="url(#sh)">
+ <rect x="70" y="230" width="220" height="140" rx="22" fill="#1E0F36"/>
+ <rect x="440" y="230" width="220" height="140" rx="22" fill="#5C2BC2"/>
+ <rect x="810" y="230" width="220" height="140" rx="22" fill="#FFFFFF" stroke="#5C2BC2" stroke-width="2.5"/>
+ <rect x="1130" y="230" width="210" height="140" rx="22" fill="#FFC414"/>
+</g>
+<text x="180" y="290" text-anchor="middle" class="t" fill="#fff">Your agent</text>
+<text x="180" y="318" text-anchor="middle" class="s" fill="#CBBEE6">Claude Code · Codex</text>
+<text x="180" y="340" text-anchor="middle" class="s" fill="#CBBEE6">any MCP client</text>
+<text x="550" y="290" text-anchor="middle" class="t" fill="#fff">Tuck</text>
+<text x="550" y="318" text-anchor="middle" class="s" fill="#E6DAFF">local MCP server</text>
+<text x="550" y="340" text-anchor="middle" class="s" fill="#E6DAFF">runs on your Mac</text>
+<text x="920" y="290" text-anchor="middle" class="t" fill="#301A52">Secure popup</text>
+<text x="920" y="318" text-anchor="middle" class="s" fill="#5E4F76">you paste the key</text>
+<text x="920" y="340" text-anchor="middle" class="s" fill="#5E4F76">and click Save</text>
+<text x="1235" y="290" text-anchor="middle" class="t" fill="#301A52">Apple Keychain</text>
+<text x="1235" y="318" text-anchor="middle" class="s" fill="#6B4A00">your login keychain</text>
+<text x="1235" y="340" text-anchor="middle" class="s" fill="#6B4A00">macOS protects it</text>
+
+<!-- 1 request -->
+<line x1="296" y1="270" x2="432" y2="270" stroke="#5C2BC2" stroke-width="3" marker-end="url(#av)"/>
+<circle cx="364" cy="206" r="15" fill="#5C2BC2"/><text x="364" y="211.5" text-anchor="middle" fill="#fff" style="font-size:15px;font-weight:800">1</text>
+<text x="364" y="166" text-anchor="middle" class="lab">asks for a key</text>
+<text x="364" y="184" text-anchor="middle" class="mono">save_credential(service, account)</text>
+
+<!-- 2 open -->
+<line x1="666" y1="270" x2="802" y2="270" stroke="#5C2BC2" stroke-width="3" marker-end="url(#av)"/>
+<circle cx="734" cy="206" r="15" fill="#5C2BC2"/><text x="734" y="211.5" text-anchor="middle" fill="#fff" style="font-size:15px;font-weight:800">2</text>
+<text x="734" y="166" text-anchor="middle" class="lab">opens the popup</text>
+<text x="734" y="184" text-anchor="middle" class="sub">destination filled in</text>
+
+<!-- 3 save (the only arrow that carries the key) -->
+<line x1="1036" y1="300" x2="1122" y2="300" stroke="#C98A00" stroke-width="6" marker-end="url(#ag)"/>
+<circle cx="1079" cy="206" r="15" fill="#C98A00"/><text x="1079" y="211.5" text-anchor="middle" fill="#fff" style="font-size:15px;font-weight:800">3</text>
+<text x="1079" y="166" text-anchor="middle" class="lab">🔑 the key goes</text>
+<text x="1079" y="184" text-anchor="middle" class="sub">straight to Keychain</text>
+
+<!-- 4 status back -->
+<line x1="432" y1="330" x2="296" y2="330" stroke="#14B07D" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#am)"/>
+<circle cx="364" cy="394" r="15" fill="#14B07D"/><text x="364" y="399.5" text-anchor="middle" fill="#fff" style="font-size:15px;font-weight:800">4</text>
+<text x="364" y="432" text-anchor="middle" class="lab">agent gets one word</text>
+<text x="364" y="450" text-anchor="middle" class="mono" style="fill:#14B07D">"saved"</text>
+
+<!-- blocked: key never goes back to the agent -->
+<path d="M920,376 V500 H180 V382" fill="none" stroke="#F01E6E" stroke-width="3" stroke-linejoin="miter" marker-end="url(#ar)"/>
+<circle cx="550" cy="500" r="24" fill="#FFFFFF" stroke="#F01E6E" stroke-width="4"/>
+<path d="M539,489 L561,511 M561,489 L539,511" stroke="#F01E6E" stroke-width="5" stroke-linecap="round"/>
+<text x="550" y="556" text-anchor="middle" style="font-size:18px;font-weight:800" fill="#F01E6E">The key never reaches your agent</text>
+<text x="550" y="579" text-anchor="middle" class="sub" style="font-size:15px">not in the chat · not in shell history · not in the cloud</text>
+</g>
+<!-- OUTSIDE YOUR MAC -->
+<text x="60" y="44" style="font-size:15px;font-weight:800;letter-spacing:.12em" fill="#8A7FA3">THE INTERNET</text>
+<!-- AI provider cloud -->
+<g transform="translate(180,120)">
+ <path d="M-110,30 C-140,30 -140,-12 -108,-14 C-104,-48 -52,-56 -34,-30 C-18,-62 40,-60 50,-24 C88,-34 116,-4 100,24 C122,34 112,62 84,60 L-96,60 C-128,60 -134,32 -110,30 Z" fill="#FFFFFF" stroke="#CBBEE6" stroke-width="2.5"/>
+ <text y="12" text-anchor="middle" class="lab" style="font-size:17px">Your AI provider</text>
+ <text y="34" text-anchor="middle" class="sub">Anthropic · OpenAI · …</text>
+</g>
+<line x1="180" y1="186" x2="180" y2="444" stroke="#9B8FB8" stroke-width="3"/>
+<text x="198" y="212" class="lab">your chat with the AI</text>
+<text x="198" y="230" class="sub">never contains the key</text>
+<!-- Tuck servers: none -->
+<g transform="translate(550,120)">
+ <path d="M-110,30 C-140,30 -140,-12 -108,-14 C-104,-48 -52,-56 -34,-30 C-18,-62 40,-60 50,-24 C88,-34 116,-4 100,24 C122,34 112,62 84,60 L-96,60 C-128,60 -134,32 -110,30 Z" fill="none" stroke="#F01E6E" stroke-width="2.5" stroke-dasharray="8 7"/>
+ <text y="12" text-anchor="middle" style="font-size:17px;font-weight:800" fill="#F01E6E">Tuck’s servers</text>
+ <text y="34" text-anchor="middle" class="sub" style="fill:#F01E6E">there are none</text>
+</g>
+<line x1="550" y1="444" x2="550" y2="190" stroke="#F01E6E" stroke-width="3" marker-end="url(#ar)"/>
+<circle cx="550" cy="260" r="24" fill="#FFFFFF" stroke="#F01E6E" stroke-width="4"/>
+<path d="M539,249 L561,271 M561,249 L539,271" stroke="#F01E6E" stroke-width="5" stroke-linecap="round"/>
+<text x="588" y="226" style="font-size:17px;font-weight:800" fill="#F01E6E">Tuck has no network access</text>
+<text x="588" y="247" class="sub" style="font-size:15px">no servers · no accounts · no analytics — the key has nowhere to go but Keychain</text>
+</svg></body></html>

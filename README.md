@@ -21,6 +21,10 @@
   <img src="assets/demo.gif" width="800" alt="A coding agent in the terminal calls Tuck. The Tuck popup opens with the destination filled in, the key is pasted, Save turns gold, and the terminal receives the single word: saved.">
 </p>
 
+> [!IMPORTANT]
+> **Tuck has no servers.** The app has no network access at all (the App Sandbox is its only permission), so your key has exactly one place to go: Apple Keychain, on your Mac. There's no Tuck account, no cloud, no analytics, and no server that could ever be breached, because none exists.
+
+
 ---
 
 ## The problem
@@ -45,7 +49,7 @@ The agent never sees the key, its length, or anything derived from it.
 ## How it works
 
 <p align="center">
-  <img src="assets/how-it-works.png" width="900" alt="Everything happens on your Mac. 1: your agent asks Tuck, a local MCP server, for a key with save_credential(service, account). 2: Tuck opens a secure popup with the destination filled in. 3: you paste the key and click Save, and the key goes straight to Apple Keychain. 4: the agent gets back one word, saved. A red dashed path from the popup back to the agent is crossed out: the key never reaches your agent.">
+  <img src="assets/how-it-works.png" width="900" alt="Everything happens on your Mac. Above the Mac, the internet: your AI provider, connected to your agent by your chat, which never contains the key; and Tuck's servers, which do not exist. The line from Tuck to them is crossed out: Tuck has no network access. On the Mac: 1, your agent asks Tuck, a local MCP server, for a key. 2, Tuck opens a secure popup. 3, you paste the key and it goes straight to Apple Keychain. 4, the agent gets back one word, saved. A path from the popup back to the agent is crossed out: the key never reaches your agent.">
 </p>
 
 1. **Your agent asks.** It calls Tuck's one tool, `save_credential`, with where the key should go. It never sends a key.
@@ -53,7 +57,7 @@ The agent never sees the key, its length, or anything derived from it.
 3. **You paste the key and click Save.** It goes straight into Apple Keychain, and Tuck clears your clipboard.
 4. **Your agent gets one word back:** `saved`. Never the key, its length, or anything derived from it.
 
-Tuck's MCP server is **local**: it runs inside the Tuck app on your Mac, started by your agent's client. There is no Tuck server anywhere else.
+Tuck's MCP server is **local**: it runs inside the Tuck app on your Mac, started by your agent's client. **There is no Tuck server anywhere else**, and the app has no network access, so the key can't leave your Mac through Tuck.
 
 ### Using the key later
 
@@ -84,6 +88,7 @@ security find-generic-password -s OPENAI_API_KEY -a me -w \
 | An agent quietly reading your saved keys back | Another app you approve in the macOS Keychain prompt |
 | Silent overwrites of an existing key | Pasting the wrong key (Tuck warns when a key looks like a different provider than its destination, but never blocks) |
 | A malicious "go here to get your key" link: HTTPS only, hostname shown, never auto-opened | Anything after the key leaves Keychain for the tool that uses it |
+| A breach of Tuck's servers: there are none, and the app can't reach the network | |
 
 The full design, including transport limits and failure handling, is in [ARCHITECTURE.md](ARCHITECTURE.md).
 
