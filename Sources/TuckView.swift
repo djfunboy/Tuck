@@ -186,6 +186,9 @@ struct TuckView: View {
     }
 
     // MARK: Agent setup
+    /// Hosted setup steps, so wording changes ship with the website instead of an App Store release.
+    static let setupURL = "https://tuckaway.dev/setup/SETUP.md"
+
     static func setupRequest(bundle: Bundle = .main) throws -> String {
         guard let url = bundle.url(forResource: "SKILL", withExtension: "md") else {
             throw CocoaError(.fileNoSuchFile)
@@ -193,11 +196,13 @@ struct TuckView: View {
         let skill = try String(contentsOf: url, encoding: .utf8)
         let executable = "/Applications/Tuck.app/Contents/MacOS/Tuck"
         return """
-        Set up Tuck for this local coding agent:
+        Set up Tuck for this local coding agent.
 
-        1. If an MCP server named keydrop is configured or points at the missing /Applications/Keydrop.app/Contents/MacOS/Keydrop executable, remove that old entry. Register a local stdio MCP server named tuck using executable \(executable) with the single argument --mcp. Preserve unrelated MCP settings. Never put credentials in configuration.
-        2. Install the tuck skill in this client's supported personal skill directory, with automatic discovery enabled. Fetch the canonical copy from https://tuckaway.dev/skill/SKILL.md; if you cannot fetch, use the identical SKILL.md pasted below. Use the client's documented location. Preserve unrelated skills; if a tuck skill already exists, compare it and preserve user customizations. If this client does not support skills, explain that limitation and retain the MCP connection; do not invent an install location or edit unrelated global instructions.
-        3. Verify server discovery includes save_credential and the skill file was installed. Tell me if the client needs a restart. Do not open a test prompt until I ask.
+        The current setup steps are at \(setupURL). Fetch that page and follow it. If you cannot fetch it, follow these steps instead:
+
+        1. If an MCP server named keydrop is configured, or any MCP entry points at /Applications/Keydrop.app, remove that old entry. Register a stdio MCP server named tuck that runs \(executable) with the single argument --mcp. Register it at this client's user or global level so it works in every project and folder, not only the current one, using the client's documented command or configuration file. Keep one tuck entry. Preserve unrelated MCP settings. Never put credentials in configuration.
+        2. Install the tuck skill in this client's supported personal skill directory, with automatic discovery enabled. Fetch the canonical copy from https://tuckaway.dev/skill/SKILL.md; if you cannot fetch it, use the SKILL.md below. Use the client's documented location. Preserve unrelated skills; if a tuck skill already exists, compare it and preserve user customizations. If this client does not support skills, explain that limitation and retain the MCP connection; do not invent an install location or edit unrelated global instructions.
+        3. Verify that tuck is registered at the user or global level, that server discovery includes save_credential, and that the skill file was installed. Tell me if the client needs a restart; most clients load a new MCP server only in a new session. Do not open a test prompt until I ask.
 
         SKILL.md:
         ```markdown

@@ -29,8 +29,8 @@ struct MCPRequestValidator {
 
 actor MCPService {
     private let server = Server(
-        name: "tuck", version: "1.2.0", title: "Tuck",
-        instructions: "Use save_credential for any secret the person must supply, instead of a Terminal command or a paste in chat. Tuck opens a native secure prompt and writes the value to Apple Keychain locally; never send a credential value to this server. It returns only a status: saved, cancelled, timed_out, busy, failed, or restart_required (Tuck was updated; the client must restart). The tuck skill says when and how, including the optional provider_url: https://tuckaway.dev/skill/SKILL.md",
+        name: "tuck", version: "1.2.1", title: "Tuck",
+        instructions: "Use save_credential for any secret the person must supply, instead of a Terminal command or a paste in chat. Tuck opens a native secure prompt and writes the value to Apple Keychain locally; never send a credential value to this server. It returns only a status: saved, cancelled, timed_out, busy, or restart_required (Tuck was updated; the client must restart). The tuck skill says when and how, including the optional provider_url: https://tuckaway.dev/skill/SKILL.md",
         capabilities: .init(tools: .init(listChanged: false))
     )
     private let model: PromptModel
@@ -43,7 +43,7 @@ actor MCPService {
         await server.withMethodHandler(ListTools.self) { _ in
             .init(tools: [Tool(
                 name: "save_credential", title: "Save a credential with Tuck",
-                description: "Open the native Tuck secure prompt. The person enters the credential locally; never pass a password or token as an argument. The person explicitly approves the destination and any replacement. An optional stable provider URL is shown as an unverified agent suggestion and opens only when clicked. Returns status only: saved, cancelled, timed_out, busy, failed, or restart_required (Tuck was updated; the client must restart). Use instead of a terminal Keychain save command.",
+                description: "Open the native Tuck secure prompt. The person enters the credential locally; never pass a password or token as an argument. The person explicitly approves the destination and any replacement. An optional stable provider URL is shown as an unverified agent suggestion and opens only when clicked. Returns status only: saved, cancelled, timed_out, busy, or restart_required (Tuck was updated; the client must restart). Use instead of a terminal Keychain save command.",
                 inputSchema: .object([
                     "type": .string("object"),
                     "properties": .object([

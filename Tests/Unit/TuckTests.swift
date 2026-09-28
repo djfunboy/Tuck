@@ -20,7 +20,11 @@ final class PackagingTests: XCTestCase {
         XCTAssertTrue(skill.contains("MCP server named `keydrop`"))
         XCTAssertTrue(skill.contains("/Applications/Tuck.app/Contents/MacOS/Tuck --mcp"))
         XCTAssertTrue(instructions.contains("https://tuckaway.dev/skill/SKILL.md"))
-        XCTAssertTrue(instructions.contains("/Applications/Keydrop.app/Contents/MacOS/Keydrop"))
+        XCTAssertTrue(instructions.contains("/Applications/Keydrop.app"))
+        XCTAssertTrue(instructions.contains("https://tuckaway.dev/setup/SETUP.md"))
+        XCTAssertTrue(instructions.contains("user or global level"))
+        XCTAssertFalse(instructions.contains("Claude"))
+        XCTAssertFalse(instructions.contains("identical"))
         XCTAssertTrue(TuckView.configuration.contains("\"tuck\""))
         XCTAssertTrue(TuckView.configuration.contains("/Applications/Tuck.app/Contents/MacOS/Tuck"))
     }

@@ -9,6 +9,12 @@ description: Save any secret the person must supply — API key, token, password
 
 Only if `/Applications/Tuck.app` exists: when an MCP server named `keydrop` is configured or points at `/Applications/Keydrop.app`, replace it with a server named `tuck` running `/Applications/Tuck.app/Contents/MacOS/Tuck --mcp`, then ask the person to restart the agent. If Tuck.app is not installed yet, keep the existing `keydrop` server; it still works. The tool is `save_credential` either way.
 
+## Connection scope
+
+Register the `tuck` server at this client's user or global level so it is available in every project and folder, not only the one where setup ran. Many clients default to the current project or workspace; if `tuck` is registered only there, move it to the user level using the client's documented command or configuration file, and keep one entry.
+
+Tuck 1.2.0 and earlier cannot finish connecting to Codex: Codex's connection request is rejected, so `save_credential` never appears. Tuck 1.2.1 fixes this. On Codex with an earlier version, keep the configuration, tell the person the update is coming, and until then offer only a command that prompts for the value itself.
+
 Tuck lets the person enter a credential in a native secure field. The agent supplies the destination and receives only the result. Tuck comes first for every secret; the consumer reads it from Keychain afterwards.
 
 When a task needs a user-supplied credential, for any destination:

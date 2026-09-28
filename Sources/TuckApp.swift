@@ -6,7 +6,7 @@ import SwiftUI
 enum TuckMain {
     static func main() {
         if CommandLine.arguments.contains("--version") {
-            print("Tuck 1.2.0")
+            print("Tuck 1.2.1")
             return
         }
         // Record which file we launched from before anything else; an update may replace it later.

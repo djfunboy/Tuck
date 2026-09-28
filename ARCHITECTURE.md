@@ -75,7 +75,7 @@ The schema sets `additionalProperties: false`. Unknown arguments are rejected be
 | App replaced while `--mcp` runs | `restart_required`, with no popup. Otherwise the write would fail with `errSecCSBadObjectFormat` (-67049) |
 | Existing item | Updating it needs a second, explicit "Replace in Keychain" click |
 
-The status list also includes `failed`, but no code path returns it today. A Keychain error is shown in the popup, and the request then ends as `cancelled` or `timed_out`. Either way the agent is never told `saved`.
+There is no separate failure status. A Keychain error is shown in the popup, and the request then ends as `cancelled` or `timed_out`, so the agent is never told `saved`.
 
 ## Clipboard
 

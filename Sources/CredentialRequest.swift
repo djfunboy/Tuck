@@ -75,7 +75,7 @@ enum RequestError: Error, Equatable {
 }
 
 enum SaveOutcome: String, Sendable {
-    case saved, cancelled, timedOut = "timed_out", busy, failed
+    case saved, cancelled, timedOut = "timed_out", busy
     /// The app bundle was replaced while this process kept running; Keychain writes would fail the code check.
     case restartRequired = "restart_required"
 }

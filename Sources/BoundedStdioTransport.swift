@@ -27,6 +27,23 @@ struct LineFramer: Sendable {
     }
 }
 
+enum InitializeCompatibility {
+    /// The pinned SDK types `capabilities.experimental` as `[String: String]`, while MCP defines
+    /// its values as objects; Codex sends `{"codex/auth-change": {}}` and the SDK rejects the
+    /// whole `initialize`. Tuck uses no experimental client capability, so the field is removed.
+    static func stripExperimentalCapabilities(_ frame: Data) -> Data {
+        guard frame.range(of: Data("experimental".utf8)) != nil,
+              var message = try? JSONSerialization.jsonObject(with: frame) as? [String: Any],
+              message["method"] as? String == "initialize",
+              var params = message["params"] as? [String: Any],
+              var capabilities = params["capabilities"] as? [String: Any],
+              capabilities.removeValue(forKey: "experimental") != nil else { return frame }
+        params["capabilities"] = capabilities
+        message["params"] = params
+        return (try? JSONSerialization.data(withJSONObject: message)) ?? frame
+    }
+}
+
 enum PipeError: Error { case oversized, overloaded, unsupportedBatch, disconnected, io }
 
 actor BoundedStdioTransport: Transport {
@@ -115,7 +132,8 @@ actor BoundedStdioTransport: Transport {
             }
             do {
                 for frame in try framer.append(Data(buffer.prefix(count))) {
-                    if case .dropped = continuation.yield(frame) { throw PipeError.overloaded }
+                    let compatible = InitializeCompatibility.stripExperimentalCapabilities(frame)
+                    if case .dropped = continuation.yield(compatible) { throw PipeError.overloaded }
                 }
             } catch {
                 continuation.finish(throwing: error)

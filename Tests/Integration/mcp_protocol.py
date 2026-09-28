@@ -59,6 +59,19 @@ if __name__ == '__main__':
         print('PASS: initialize, discovery, strict arguments, no read tool, ping, EOF exit')
     finally:
         if client.process.poll() is None: client.process.kill()
+    codex = Client(executable)
+    try:
+        codex.send('initialize',{'protocolVersion':'2025-06-18','capabilities':{'elicitation':{},'experimental':{'codex/auth-change':{}}},'clientInfo':{'name':'codex-mcp-client','version':'0.0.0'}})
+        reply = codex.receive()
+        assert 'error' not in reply, 'Codex initialize rejected: %s' % reply.get('error')
+        assert reply['result']['serverInfo']['name'] == 'tuck'
+        codex.send('notifications/initialized', notify=True)
+        codex.send('tools/list')
+        assert [t['name'] for t in codex.receive()['result']['tools']] == ['save_credential']
+        codex.close()
+        print('PASS: Codex initialize with experimental capabilities, discovery')
+    finally:
+        if codex.process.poll() is None: codex.process.kill()
     oversized = Client(executable)
     try:
         oversized.process.stdin.write(b'x'*16385+b'\n'); oversized.process.stdin.flush()
