@@ -6,13 +6,15 @@ import SwiftUI
 enum TuckMain {
     static func main() {
         if CommandLine.arguments.contains("--version") {
-            print("Tuck 1.2.1")
+            print("Tuck 1.2.2")
             return
         }
         // Record which file we launched from before anything else; an update may replace it later.
         _ = ExecutableIdentity.launch
         let application = TuckApplication.shared
         let isMCP = CommandLine.arguments.contains("--mcp")
+        // Info.plist sets LSUIElement, so every launch starts without a Dock tile and an agent's
+        // --mcp process never flashes one; the standalone app promotes itself here.
         // Must precede run(): the Dock registers the tile during finishLaunching, and a policy
         // applied only afterwards left a zero-width (invisible) Dock tile.
         application.setActivationPolicy(isMCP ? .accessory : .regular)
@@ -69,7 +71,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 self?.window?.close()
                 NSApplication.shared.terminate(nil)
             }
-        } else { showWindow() }
+        } else {
+            showWindow()
+            // An agent process that received the person's "open Tuck" asks this instance to
+            // show its window instead of launching another one (see ReopenPolicy).
+            DistributedNotificationCenter.default().addObserver(
+                self, selector: #selector(showTuckWindow(_:)), name: ReopenPolicy.showWindowRequest, object: nil)
+        }
     }
 
     // MARK: Window
@@ -170,8 +178,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     func windowWillClose(_ notification: Notification) { model.cancel() }
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        switch ReopenPolicy.action(isMCP: isMCP, hasPendingRequest: model.request != nil) {
+        let standalone = isMCP ? ReopenPolicy.runningStandaloneInstance() : nil
+        switch ReopenPolicy.action(isMCP: isMCP, hasPendingRequest: model.request != nil,
+                                   standaloneRunning: standalone != nil) {
         case .showWindow: showWindow()
+        case .activateStandalone: if let standalone { ReopenPolicy.activate(standalone) }
         case .launchStandalone: ReopenPolicy.launchStandaloneInstance()
         }
         return false

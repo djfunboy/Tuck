@@ -29,7 +29,7 @@ struct MCPRequestValidator {
 
 actor MCPService {
     private let server = Server(
-        name: "tuck", version: "1.2.1", title: "Tuck",
+        name: "tuck", version: "1.2.2", title: "Tuck",
         instructions: "Use save_credential for any secret the person must supply, instead of a Terminal command or a paste in chat. Tuck opens a native secure prompt and writes the value to Apple Keychain locally; never send a credential value to this server. It returns only a status: saved, cancelled, timed_out, busy, or restart_required (Tuck was updated; the client must restart). The tuck skill says when and how, including the optional provider_url: https://tuckaway.dev/skill/SKILL.md",
         capabilities: .init(tools: .init(listChanged: false))
     )

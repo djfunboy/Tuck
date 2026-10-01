@@ -443,14 +443,35 @@ final class ExecutableIdentityTests: XCTestCase {
 
 final class ReopenPolicyTests: XCTestCase {
     func testStandaloneAlwaysShowsItsWindow() {
-        XCTAssertEqual(ReopenPolicy.action(isMCP: false, hasPendingRequest: false), .showWindow)
-        XCTAssertEqual(ReopenPolicy.action(isMCP: false, hasPendingRequest: true), .showWindow)
+        for pending in [false, true] {
+            for running in [false, true] {
+                XCTAssertEqual(ReopenPolicy.action(isMCP: false, hasPendingRequest: pending, standaloneRunning: running), .showWindow)
+            }
+        }
     }
     func testAgentProcessWithoutRequestLaunchesStandaloneInstead() {
         // The 2026-09-18 bug: reopen reached an agent's --mcp process and showed an empty credential panel.
-        XCTAssertEqual(ReopenPolicy.action(isMCP: true, hasPendingRequest: false), .launchStandalone)
+        XCTAssertEqual(ReopenPolicy.action(isMCP: true, hasPendingRequest: false, standaloneRunning: false), .launchStandalone)
+    }
+    func testAgentProcessReusesRunningStandaloneInsteadOfLaunchingAnother() {
+        // The 2026-09-29 bug: every open routed to an agent process launched another setup window.
+        XCTAssertEqual(ReopenPolicy.action(isMCP: true, hasPendingRequest: false, standaloneRunning: true), .activateStandalone)
     }
     func testAgentProcessWithRequestBringsPopupForward() {
-        XCTAssertEqual(ReopenPolicy.action(isMCP: true, hasPendingRequest: true), .showWindow)
+        for running in [false, true] {
+            XCTAssertEqual(ReopenPolicy.action(isMCP: true, hasPendingRequest: true, standaloneRunning: running), .showWindow)
+        }
+    }
+}
+
+final class LaunchPresentationTests: XCTestCase {
+    func testEveryLaunchStartsWithoutADockTile() throws {
+        // Agents start `Tuck --mcp` constantly; without LSUIElement each launch flashed a Dock tile
+        // before main() switched it to .accessory (2026-09-29).
+        let url = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+            .appendingPathComponent("Resources/Info.plist")
+        let plist = try XCTUnwrap(NSDictionary(contentsOf: url))
+        XCTAssertEqual(plist["LSUIElement"] as? Bool, true)
     }
 }
